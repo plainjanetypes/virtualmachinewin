@@ -1,4 +1,9 @@
 module "vm_07_deploy" {
-    source = "./module/"
+    source = "./module/vm"
+  
+}
+
+module "aks_07_deploy" {
+    source = "./module/aks"
   
 }
