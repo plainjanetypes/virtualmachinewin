@@ -1,6 +1,6 @@
 resource "azurerm_network_interface" "vm07_nic" {
     name = "${local.prefix}-eastus-${local.suffix}-nic"
-    resource_group_name = data.azurerm_resource_group.rg_vm.name
+    resource_group_name = var.rgname #data.azurerm_resource_group.rg_vm.name
     location = data.azurerm_resource_group.rg_vm.location
     ip_configuration {
       name = "internal"
@@ -10,8 +10,8 @@ resource "azurerm_network_interface" "vm07_nic" {
   
 }
 resource "azurerm_windows_virtual_machine" "vm07_xx" {
-    name = "${local.prefix}-eastus-${local.suffix}"
-    resource_group_name = data.azurerm_resource_group.rg_vm.name 
+    name = var.vmname #"${local.prefix}-eastus-${local.suffix}"
+    resource_group_name = var.rgname #data.azurerm_resource_group.rg_vm.name 
     location = data.azurerm_resource_group.rg_vm.location
     size = "Standard_D2s_v3" #add array
     admin_username = "vmadmin"
